@@ -10,7 +10,7 @@ then require the module inside your file:
 ...
 const Battlerite = require('battlerite-node');
 
-Battlerite.Match.getList().then( (matches) =>{
+Battlerite.Match.getList().then((matches) => {
   matches.forEach((match) => {
     match.getTelemetry().then(doSomethingWithTelemetryData);
   }).catch(console.error);
