@@ -22,7 +22,6 @@ let OPTIONS = {
 * Below are reported the properties of the class. These are just for convenience.
 * If the official API gets updated, the properties of the class may change, so to be sure
 * you should refer to the [official documentation]{@link http://battlerite-docs.readthedocs.io/en/latest/match_data_summary/match_data_summary.html#match-object}
-* NOTE: the documentation talks
 * @property {String} type - string which states the match type
 * @property {String} id - Match ID
 * @property {String} creatredAt - Time of Match Played, in [iso8601 format]{@link https://en.wikipedia.org/wiki/ISO_8601}
