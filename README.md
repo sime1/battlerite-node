@@ -1,7 +1,7 @@
 # battlerite-node
 A node.js SDk for accessing the official Battlerite API.
 ## Getting started
-To start using battlerite-node, you just have to install the npm module: 
+To start using battlerite-node, you just have to install the npm module:
 ```
 npm install --save battlerite-node
 ```
@@ -10,6 +10,7 @@ then require the module inside your file:
 ...
 const Battlerite = require('battlerite-node');
 
+Battlerite.config({key: 'yourAPIkey'});
 Battlerite.Match.getList().then((matches) => {
   matches.forEach((match) => {
     match.getTelemetry().then(doSomethingWithTelemetryData);

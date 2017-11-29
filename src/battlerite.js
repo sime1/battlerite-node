@@ -8,10 +8,6 @@ let OPTIONS = {
     'Accept': 'application/vnd.api+json'
   }
 };
-/**
-* Battlerite namespace
-* @namespace Battlerite
-*/
 
 /**
 * Class Match, contains data about a Battlerite match and provides static methods to
@@ -92,7 +88,7 @@ class Match{
   */
 
   /**
-   * Static method that fetches a list of matches from the API.
+   * Static method that fetches a list of matches from the API. You must call {@link Battlerite.config} and set the API key before calling this.
    * @param {MatchListOptions} params - Options used to select which matches are retrieved.
    * @returns {Promise} a promise which in case of success is fulfilled with an array of {@link Match} objects
   */
@@ -140,7 +136,7 @@ class Match{
     return promise.then((data) => data.map((match) => new Match(match)));
   }
   /**
-   * static method that fetches the data about a single match.
+   * static method that fetches the data about a single match. You must call {@link Battlerite.config} and set the API key before calling this.
    * @param {String} id - id of the match to retrieve.
    * @returns {Promise} a promise which in case of success is fulfilled with a {@link Match} Object.
   */
@@ -240,9 +236,23 @@ function resolveRelationships(obj, included){
   return resolved;
 }
 
+/**
+* Options used to configure the Battlerite module.
+* @typedef {Object} BattleriteConfig
+* @property {String} key - Your API key. you can get one at the [developer portal]{@link https://developer.battlerite.com/}
+*/
+
+/**
+* Root module of battlerite-node.
+* @namespace
+*/
 const Battlerite = {
   Match,
   Player,
+  /**
+   * function used to cofigure the Battlerite module.
+   * @param {BattleriteConfig} options - configuration object
+   */
   config: (options) => {
     OPTIONS.headers.Authorization = `Bearer ${options.key}`;
   }
