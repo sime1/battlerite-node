@@ -1,0 +1,24 @@
+{
+  "name": "battlerite-node",
+  "version": "0.1.0",
+  "description": "node.js SDK for accessing the Battlerite API",
+  "main": "src/battlerite.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sime1/battlerite-node.git"
+  },
+  "keywords": [
+    "battlerite",
+    "node",
+    "api"
+  ],
+  "author": "Simeone Pizzi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sime1/battlerite-node/issues"
+  },
+  "homepage": "https://sime1.github.io/battlerite-node"
+}
