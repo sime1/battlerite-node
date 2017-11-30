@@ -43,7 +43,7 @@ Battlerite.Match.get(id).then((match) => {
 ## Documentation
 For detailed information about the usage of battlerite-node, you can find the documentation [here](https://sime1.github.io/battlerite-node)
 ## Known bugs
-The player endpoint according to the official documentation is coming soon. This means that most of the relative features do not work right now. This includes:
+The player endpoint is coming soon according to the official documentation. This means that most of the relative features do not work right now. This includes:
 * the Player class
 * all filters, except for the player ID and the creation time ones
 ## License
