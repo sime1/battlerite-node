@@ -45,7 +45,9 @@ For detailed information about the usage of battlerite-node, you can find the do
 ## Known bugs
 The player endpoint is coming soon according to the official documentation. This means that most of the relative features do not work right now. This includes:
 * the Player class
-* all filters, except for the player ID and the creation time ones
+* many filters when calling Match.getList()
+* participants sometimes have partial stats. This is due to the API returnig only those stats. 
+
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 ## Changelog
