@@ -133,7 +133,7 @@ class Match{
     if(urlParams.length)
       options.path += '?' + urlParams.join('&');
     let promise = new Promise(httpsExecutor(options));
-    return promise.then((data) => data.map((match) => new Match(match)));
+    return promise.then((res) => res.data.map((match) => new Match({data: match, included: res.included})));
   }
   /**
    * static method that fetches the data about a single match. You must call {@link Battlerite.config} and set the API key before calling this.

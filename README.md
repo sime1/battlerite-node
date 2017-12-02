@@ -22,3 +22,7 @@ Battlerite.Match.getList().then((matches) => {
 You can find the documentation of battlerite-node [here](https://sime1.github.io/battlerite-node)
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+## Changelog
+0.1.0: initial Release
+0.1.1: added README to npm
+0.1.2: fixed bug with match list download 
