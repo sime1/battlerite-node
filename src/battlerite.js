@@ -1,5 +1,6 @@
 const URL = 'https://api.dc01.gamelockerapp.com/shards/global/';
 const httpsExecutor = require('./https-executor');
+const champions = require('./champions');
 
 let OPTIONS = {
   host: 'api.dc01.gamelockerapp.com',
@@ -211,7 +212,8 @@ class Player{
 function resolveRelationships(obj, included){
   if(!obj)
     return;
-  let resolved = {...obj}
+  let resolved = {...obj, ...obj.attributes};
+  delete resolved.attributes;
   let toResolve = [resolved];
   while(toResolve.length){
     let cur = toResolve[0];
@@ -225,6 +227,10 @@ function resolveRelationships(obj, included){
         let el = included.find((el) => el.id === id);
         if(el){
           let newRel = JSON.parse(JSON.stringify(el));
+          if(newRel.attributes){
+            Object.assign(newRel, newRel.attributes);
+            delete newRel.attributes;
+          }
           cur[type].push(newRel);
           toResolve.push(newRel);
         }
@@ -255,7 +261,8 @@ const Battlerite = {
    */
   config: (options) => {
     OPTIONS.headers.Authorization = `Bearer ${options.key}`;
-  }
+  },
+  champions
 }
 
 module.exports = Battlerite;
