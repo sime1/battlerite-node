@@ -55,6 +55,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 0.1.2: fixed bug with match list download
 
-0.2.0: now resolving relationships also merge attributes into the object. This way Match objects actually reflect the documentation. Added enums for maps and champions
+0.2.0: now resolving relationships also merges attributes into the object. This way Match objects actually reflect the documentation. Added enums for maps and champions
 
 0.2.1: quick fix to export maps
