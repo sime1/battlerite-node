@@ -1,6 +1,7 @@
 const URL = 'https://api.dc01.gamelockerapp.com/shards/global/';
 const httpsExecutor = require('./https-executor');
 const champions = require('./champions');
+const maps = require('./maps');
 
 let OPTIONS = {
   host: 'api.dc01.gamelockerapp.com',
@@ -262,7 +263,8 @@ const Battlerite = {
   config: (options) => {
     OPTIONS.headers.Authorization = `Bearer ${options.key}`;
   },
-  champions
+  champions,
+  maps
 }
 
 module.exports = Battlerite;
