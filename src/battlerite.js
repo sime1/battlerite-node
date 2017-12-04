@@ -159,9 +159,9 @@ class Match{
    */
   getTelemetry(){
     let urls = this.assets.filter( (asset) => {
-      return (asset.attributes && asset.attributes.name === 'telemetry' && asset.attributes.URL);
+      return (asset.name === 'telemetry' && asset.URL);
     }).map((asset) => {
-      return asset.attributes.URL;
+      return asset.URL;
     });
     let promises = urls.map((url) => {
       return new Promise(httpsExecutor(url));
