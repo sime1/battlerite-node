@@ -46,27 +46,19 @@ For detailed information about the usage of battlerite-node, you can find the do
 The player endpoint is coming soon according to the official documentation. This means that most of the relative features do not work right now. This includes:
 * the Player class
 * many filters when calling Match.getList()
-* participants sometimes have partial stats. This is due to the API returnig only those stats. 
+* participants sometimes have partial stats. This is due to the API returnig only those stats.
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
-<<<<<<< HEAD
 ## Changelog
 0.1.0: initial Release
+
 0.1.1: added README to npm
+
 0.1.2: fixed bug with match list download
+
 0.2.0: now resolving relationships also merge attributes into the object. This way Match objects actually reflect the documentation. Added enums for maps and champions
+
 0.2.1: quick fix to export maps
+
 0.2.2: fix telemetry data fetching
-=======
-## Changelog
-0.1.0: initial Release
-
-0.1.1: added README to npm
-
-0.1.2: fixed bug with match list download
-
-0.2.0: now resolving relationships also merges attributes into the object. This way Match objects actually reflect the documentation. Added enums for maps and champions
-
-0.2.1: quick fix to export maps
->>>>>>> f715d650f0f63d486d981aff610f013fbc6183ae
