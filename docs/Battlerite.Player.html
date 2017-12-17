@@ -29,11 +29,10 @@
 <header>
     
         <h2><span class="attribs"><span class="type-signature"></span></span>
-            <span class="ancestors"><a href="Battlerite.html">Battlerite</a>.</span>Player<span class="signature">()</span><span class="type-signature"></span></h2>
+            <span class="ancestors"><a href="Battlerite.html">Battlerite</a>.</span>Player<span class="signature">(playerData, reorganize)</span><span class="type-signature"></span></h2>
         
             <div class="class-description">Class Player, containing data about a single player and static methods used to
-retrieve Player data from the API. As the official API states that the Player
-data is coming soon, this class does not work at the moment.</div>
+retrieve Player data from the API.</div>
         
     
 </header>
@@ -48,19 +47,110 @@ data is coming soon, this class does not work at the moment.</div>
     
 
     
-    <h4 class="name" id="Player"><span class="type-signature"></span>new Player<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Player"><span class="type-signature"></span>new Player<span class="signature">(playerData, reorganize)</span><span class="type-signature"></span></h4>
     
 
     
 
 
 
+<div class="description">
+    Constructor for the Match class.
+</div>
 
 
 
 
 
 
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>playerData</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">data about the player</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>reorganize</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last">tells the constructor whether it has to reorganize the player data or not.
+if false, playerData is just copied inside the new match. If true, data is organized so that
+attributes are moved directly inside the Player Object.
+this allows to copy data between two different Player objects.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -96,7 +186,7 @@ data is coming soon, this class does not work at the moment.</div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="battlerite.js.html">battlerite.js</a>, <a href="battlerite.js.html#line181">line 181</a>
+        <a href="battlerite.js.html">battlerite.js</a>, <a href="battlerite.js.html#line183">line 183</a>
     </li></ul></dd>
     
 
@@ -142,6 +232,324 @@ data is coming soon, this class does not work at the moment.</div>
     
 
     
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".get"><span class="type-signature">(static) </span>get<span class="signature">(id)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    static method that fetches the data about a single player. You must call <a href="Battlerite.html#.config">Battlerite.config</a> and set the API key before calling this.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">id of the player to retrieve.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="battlerite.js.html">battlerite.js</a>, <a href="battlerite.js.html#line238">line 238</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    a promise which in case of success is fulfilled with a Player Object.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".getList"><span class="type-signature">(static) </span>getList<span class="signature">(params)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Static method that fetches a list of players from the API. You must call <a href="Battlerite.html#.config">Battlerite.config</a> and set the API key before calling this.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>params</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">PlayerListOptions</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Options used to select which players are retrieved.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="battlerite.js.html">battlerite.js</a>, <a href="battlerite.js.html#line207">line 207</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    a promise which in case of success is fulfilled with an array of <a href="Battlerite.Player.html">Battlerite.Player</a> objects
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+    
 
     
 
@@ -162,7 +570,7 @@ data is coming soon, this class does not work at the moment.</div>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sat Dec 02 2017 15:47:19 GMT+0100 (W. Europe Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Dec 17 2017 21:30:06 GMT+0100 (W. Europe Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

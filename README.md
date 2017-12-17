@@ -62,3 +62,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 0.2.1: quick fix to export maps
 
 0.2.2: fix telemetry data fetching
+
+0.3.0: Player functionalities

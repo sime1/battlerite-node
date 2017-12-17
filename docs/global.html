@@ -208,7 +208,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="battlerite.js.html">battlerite.js</a>, <a href="battlerite.js.html#line245">line 245</a>
+        <a href="battlerite.js.html">battlerite.js</a>, <a href="battlerite.js.html#line282">line 282</a>
     </li></ul></dd>
     
 
@@ -226,13 +226,13 @@
 
             
                 
-<h4 class="name" id="FilterOptions">FilterOptions</h4>
+<h4 class="name" id="MatchFilterOptions">MatchFilterOptions</h4>
 
 
 
 
 <div class="description">
-    Filter options
+    Match Filter options
 </div>
 
 
@@ -323,32 +323,6 @@
 
         <tr>
             
-                <td class="name"><code>playerNames</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-|
-
-<span class="param-type">Array.&lt;String></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Filters by player name. Can be a string of comma-separated names or an array of names.</td>
-        </tr>
-
-    
-
-        <tr>
-            
                 <td class="name"><code>playerIds</code></td>
             
 
@@ -369,58 +343,6 @@
             
 
             <td class="description last">Filters by player ID. Can be a string of comma-separated IDs or an array of IDs.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>teamNames</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-|
-
-<span class="param-type">Array.&lt;String></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Filters by team name. Can be a string of comma-separated names or an array of names.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>GameMode</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-|
-
-<span class="param-type">Array.&lt;String></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Filters by game mode. Can be a string of comma-separated game mode names or an array of game mode names.</td>
         </tr>
 
     
@@ -459,7 +381,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="battlerite.js.html">battlerite.js</a>, <a href="battlerite.js.html#line72">line 72</a>
+        <a href="battlerite.js.html">battlerite.js</a>, <a href="battlerite.js.html#line73">line 73</a>
     </li></ul></dd>
     
 
@@ -592,7 +514,7 @@
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#FilterOptions">FilterOptions</a></span>
+<span class="param-type"><a href="global.html#MatchFilterOptions">MatchFilterOptions</a></span>
 
 
             
@@ -645,7 +567,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="battlerite.js.html">battlerite.js</a>, <a href="battlerite.js.html#line83">line 83</a>
+        <a href="battlerite.js.html">battlerite.js</a>, <a href="battlerite.js.html#line89">line 89</a>
     </li></ul></dd>
     
 
@@ -792,7 +714,186 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="battlerite.js.html">battlerite.js</a>, <a href="battlerite.js.html#line65">line 65</a>
+        <a href="battlerite.js.html">battlerite.js</a>, <a href="battlerite.js.html#line66">line 66</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+            
+                
+<h4 class="name" id="PlayerFilterOptions">PlayerFilterOptions</h4>
+
+
+
+
+<div class="description">
+    Player Filter options
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>playerIds</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Array.&lt;String></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Filters by player ID. Can be a string of comma-separated IDs or an array of IDs.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>playerNames</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Array.&lt;String></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Filters by player name. Can be a string of comma-separated IDs or an array of names.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>steamIds</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Array.&lt;String></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Filters by player steam ID. Can be a string of comma-separated IDs or an array of steam IDs.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="battlerite.js.html">battlerite.js</a>, <a href="battlerite.js.html#line81">line 81</a>
     </li></ul></dd>
     
 
@@ -828,7 +929,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sat Dec 02 2017 15:47:19 GMT+0100 (W. Europe Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Dec 17 2017 21:30:05 GMT+0100 (W. Europe Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

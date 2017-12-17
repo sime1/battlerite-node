@@ -71,14 +71,19 @@ class Match{
   */
 
   /**
-  * Filter options
-  * @typedef {Object} FilterOptions
+  * Match Filter options
+  * @typedef {Object} MatchFilterOptions
   * @property {String} createdAt-start - start time of the matches retrieved. format is iso8601.
   * @property {String} createdAt-end - end time of the matches retrieved. format is iso8601.
-  * @property {String|String[]} playerNames - Filters by player name. Can be a string of comma-separated names or an array of names.
   * @property {String|String[]} playerIds - Filters by player ID. Can be a string of comma-separated IDs or an array of IDs.
-  * @property {String|String[]} teamNames - Filters by team name. Can be a string of comma-separated names or an array of names.
-  * @property {String|String[]} GameMode - Filters by game mode. Can be a string of comma-separated game mode names or an array of game mode names.
+  */
+
+  /**
+  * Player Filter options
+  * @typedef {Object} PlayerFilterOptions
+  * @property {String|String[]} playerIds - Filters by player ID. Can be a string of comma-separated IDs or an array of IDs.
+  * @property {String|String[]} playerNames - Filters by player name. Can be a string of comma-separated IDs or an array of names.
+  * @property {String|String[]} steamIds - Filters by player steam ID. Can be a string of comma-separated IDs or an array of steam IDs.
   */
 
   /**
@@ -86,13 +91,13 @@ class Match{
   * @typedef {Object} MatchListOptions
   * @property {PageOptions} page - pagination options
   * @property {String} sort="createdAt" - tells how matches should be sorted.
-  * @property {FilterOptions} filter - Filter options.
+  * @property {MatchFilterOptions} filter - Filter options.
   */
 
   /**
    * Static method that fetches a list of matches from the API. You must call {@link Battlerite.config} and set the API key before calling this.
    * @param {MatchListOptions} params - Options used to select which matches are retrieved.
-   * @returns {Promise} a promise which in case of success is fulfilled with an array of {@link Match} objects
+   * @returns {Promise} a promise which in case of success is fulfilled with an array of {@link Battlerite.Match} objects
   */
   static getList(params = {}){
     let options = {...OPTIONS}, urlParams = [];
@@ -108,10 +113,7 @@ class Match{
       filter: {
         'createdAt-start': filter['createdAt-start'],
         'createdAt-end': filter['createdAt-end'],
-        playerNames: filter['playerNames'],
-        playerIds: filter['playerIds'],
-        teamNames: filter['teamNames'],
-        gameMode: filter['gameMode']
+        playerIds: filter['playerIds']
       } = {}
     } = params);
     // url creation
@@ -140,7 +142,7 @@ class Match{
   /**
    * static method that fetches the data about a single match. You must call {@link Battlerite.config} and set the API key before calling this.
    * @param {String} id - id of the match to retrieve.
-   * @returns {Promise} a promise which in case of success is fulfilled with a {@link Match} Object.
+   * @returns {Promise} a promise which in case of success is fulfilled with a {@link Battlerite.Match} Object.
   */
   static get(id){
     if(!id)
@@ -154,7 +156,7 @@ class Match{
    * As retrieving telemetry data is expensive in terms of resources, it isn't fetched automatically. Instead,
    * {@link Match} Objects provide a getTelemetry method that let you retrieve telemetry data when you need it.
    * @return {Promise} a promise which in case of success is fulfilled with an array containing the data retrieved from the telemetry url.
-   * in case more than one asset is present in the {@link Match} object, data from all the assets is downloaded and then
+   * in case more than one asset is present in the {@link Battlerite.Match} object, data from all the assets is downloaded and then
    * merged into a single array, which is then used to fulfill the promise.
    */
   getTelemetry(){
@@ -175,11 +177,33 @@ class Match{
 }
 /**
 * Class Player, containing data about a single player and static methods used to
-* retrieve Player data from the API. As the official API states that the Player
-* data is coming soon, this class does not work at the moment.
+* retrieve Player data from the API.
 * @memberof Battlerite
 */
 class Player{
+
+  /**
+   * Constructor for the Match class.
+   * @param {Object} playerData - data about the player
+   * @param {boolean} reorganize - tells the constructor whether it has to reorganize the player data or not.
+   * if false, playerData is just copied inside the new match. If true, data is organized so that
+   * attributes are moved directly inside the Player Object.
+   * this allows to copy data between two different Player objects.
+   */
+  constructor(playerData, reorganize = true){
+    if(!reorganize)
+      Object.assign(this, playerData);
+    else{
+      let data = playerData.data;
+      Object.assign(this, resolveRelationships(data, null));
+    }
+  }
+
+  /**
+   * Static method that fetches a list of players from the API. You must call {@link Battlerite.config} and set the API key before calling this.
+   * @param {PlayerListOptions} params - Options used to select which players are retrieved.
+   * @returns {Promise} a promise which in case of success is fulfilled with an array of {@link Battlerite.Player} objects
+  */
   static getList(params = {}){
     let options = {...OPTIONS}, urlParams = [];
     options.path += '/players';
@@ -187,26 +211,36 @@ class Player{
     ({
       filter: {
         playerNames: filter['playerNames'],
-        playerIds: filter['playerIds']
+        playerIds: filter['playerIds'],
+        steamIds: filter['steamIds']
       } = {}
-    });
+    } = params);
     for(let prop in filter){
-      if(filter[prop])
-        urlParams += `filter[${prop}]=${filter[prop]}`;
+      if(filter[prop]){
+        let curFilter;
+        if(Array.isArray(filter[prop]))
+          curFilter = filter[prop].join(',');
+        else
+          curFilter = filter[prop];
+        urlParams.push('filter[' + prop + ']=' + curFilter);
+      }
     }
     if(urlParams.length){
       options.path += `?${urlParams.join('&')}`;
     }
-    return new Promise(httpsExecutor(options));
+    return new Promise(httpsExecutor(options)).then((res) => res.data.map((player) => new Player({data: player, included: res.included})));
   }
-
+  /**
+   * static method that fetches the data about a single player. You must call {@link Battlerite.config} and set the API key before calling this.
+   * @param {String} id - id of the player to retrieve.
+   * @returns {Promise} a promise which in case of success is fulfilled with a {@link Battlerite.Player} Object.
+  */
   static get(id){
     if(!id)
       return Promise.reject(new Error('Must specify id'));
     let options = {...OPTIONS};
-    options.path += `/palyers/${id}`;
-
-    return new Promise(httpsExecutor(options));
+    options.path += `/players/${id}`;
+    return new Promise(httpsExecutor(options)).then((data) => new Player(data, true));
   }
 }
 
@@ -225,7 +259,9 @@ function resolveRelationships(obj, included){
       let relData = (!Array.isArray(rel.data) && rel.data) ? [rel.data] : rel.data;
       for(let i in relData){
         let id = relData[i].id;
-        let el = included.find((el) => el.id === id);
+        let el;
+        if(included)
+          el = included.find((el) => el.id === id);
         if(el){
           let newRel = JSON.parse(JSON.stringify(el));
           if(newRel.attributes){

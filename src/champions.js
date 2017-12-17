@@ -1,5 +1,5 @@
 /**
-* Champion Ids. 
+* Champion Ids.
 * @enum {String}
 * @memberof Battlerite.champions
 */
@@ -49,7 +49,9 @@ const championIds = {
   /** Blossom*/
   BLOSSOM:	'543520739',
   /** Thorn*/
-  THORN:	'1463164578'
+  THORN:	'1463164578',
+  /** Alysia*/
+  ALYSIA: '613085868'
 }
 
 /**
@@ -104,7 +106,9 @@ const championNames = {
   /** Blossom*/
   '543520739': 'Blossom',
   /** Thorn*/
-  '1463164578': 'Thorn'
+  '1463164578': 'Thorn',
+  /** Alysia*/
+  '613085868': 'Alysia'
 }
 
 /**
@@ -116,7 +120,7 @@ const championNames = {
 */
 const champions = {
   name: championNames,
-  id: championsIds
+  id: championIds
 }
 
 module.exports = champions;
