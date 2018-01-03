@@ -45,6 +45,7 @@ For detailed information about the usage of battlerite-node, you can find the do
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+
 ## Changelog
 0.1.0: initial Release
 
@@ -59,3 +60,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 0.2.2: fix telemetry data fetching
 
 0.3.0: Player functionalities
+
+0.4.0: Team functionalities, minor documentation corrections
