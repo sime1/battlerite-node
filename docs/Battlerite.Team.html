@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: Player</title>
+    <title>JSDoc: Class: Team</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: Player</h1>
+    <h1 class="page-title">Class: Team</h1>
 
     
 
@@ -29,10 +29,10 @@
 <header>
     
         <h2><span class="attribs"><span class="type-signature"></span></span>
-            <span class="ancestors"><a href="Battlerite.html">Battlerite</a>.</span>Player<span class="signature">(playerData, reorganize)</span><span class="type-signature"></span></h2>
+            <span class="ancestors"><a href="Battlerite.html">Battlerite</a>.</span>Team<span class="signature">(teamData, reorganize)</span><span class="type-signature"></span></h2>
         
-            <div class="class-description">Class Player, containing data about a single player and static methods used to
-retrieve Player data from the API.</div>
+            <div class="class-description">Class Team, containing data about a single team and static methods used to
+retrieve team data from the API.</div>
         
     
 </header>
@@ -47,7 +47,7 @@ retrieve Player data from the API.</div>
     
 
     
-    <h4 class="name" id="Player"><span class="type-signature"></span>new Player<span class="signature">(playerData, reorganize)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Team"><span class="type-signature"></span>new Team<span class="signature">(teamData, reorganize)</span><span class="type-signature"></span></h4>
     
 
     
@@ -55,7 +55,7 @@ retrieve Player data from the API.</div>
 
 
 <div class="description">
-    Constructor for the Player class.
+    Constructor for the Team class.
 </div>
 
 
@@ -93,7 +93,7 @@ retrieve Player data from the API.</div>
 
         <tr>
             
-                <td class="name"><code>playerData</code></td>
+                <td class="name"><code>teamData</code></td>
             
 
             <td class="type">
@@ -113,7 +113,7 @@ retrieve Player data from the API.</div>
                 </td>
             
 
-            <td class="description last">data about the player</td>
+            <td class="description last">data about the team</td>
         </tr>
 
     
@@ -142,10 +142,10 @@ retrieve Player data from the API.</div>
                 </td>
             
 
-            <td class="description last">tells the constructor whether it has to reorganize the player data or not.
-if false, playerData is just copied inside the new player. If true, data is organized so that
-attributes are moved directly inside the Player Object.
-this allows to copy data between two different Player objects.</td>
+            <td class="description last">tells the constructor whether it has to reorganize the team data or not.
+if false, teamData is just copied inside the new team. If true, data is organized so that
+attributes are moved directly inside the Team Object.
+this allows to copy data between two different Team objects.</td>
         </tr>
 
     
@@ -199,7 +199,7 @@ this allows to copy data between two different Player objects.</td>
 
             
 
-            <td class="description last">alway "player"</td>
+            <td class="description last">alway "team"</td>
         </tr>
 
     
@@ -222,7 +222,7 @@ this allows to copy data between two different Player objects.</td>
 
             
 
-            <td class="description last">player unique ID</td>
+            <td class="description last">team unique ID</td>
         </tr>
 
     
@@ -245,14 +245,14 @@ this allows to copy data between two different Player objects.</td>
 
             
 
-            <td class="description last">player name</td>
+            <td class="description last">team name</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>patchVersion</code></td>
+                <td class="name"><code>titleId</code></td>
             
 
             <td class="type">
@@ -268,7 +268,7 @@ this allows to copy data between two different Player objects.</td>
 
             
 
-            <td class="description last">empty string</td>
+            <td class="description last">"stunlock-studios-battlerite"</td>
         </tr>
 
     
@@ -291,7 +291,7 @@ this allows to copy data between two different Player objects.</td>
 
             
 
-            <td class="description last">id of the shard where the player data resides. As all the data is stored in the same datacenter right now, this is always empty</td>
+            <td class="description last">id of the shard where the team data resides. As all the data is stored in the same datacenter right now, this always equals "global"</td>
         </tr>
 
     
@@ -353,7 +353,7 @@ this allows to copy data between two different Player objects.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="player.js.html">player.js</a>, <a href="player.js.html#line16">line 16</a>
+        <a href="team.js.html">team.js</a>, <a href="team.js.html#line16">line 16</a>
     </li></ul></dd>
     
 
@@ -415,7 +415,9 @@ this allows to copy data between two different Player objects.</td>
 
 
 <div class="description">
-    static method that fetches the data about a single player. You must call <a href="Battlerite.html#.config">Battlerite.config</a> and set the API key before calling this.
+    static method that fetches the data about a single team. You must call <a href="Battlerite.html#.config">Battlerite.config</a> and set the API key before calling this.
+NOTE: At the moment the api does not provide a way to retrieve data about a single team,
+so the method returns a promise that is always rejected.
 </div>
 
 
@@ -467,7 +469,7 @@ this allows to copy data between two different Player objects.</td>
 
             
 
-            <td class="description last">id of the player to retrieve.</td>
+            <td class="description last">id of the team to retrieve.</td>
         </tr>
 
     
@@ -508,7 +510,7 @@ this allows to copy data between two different Player objects.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="player.js.html">player.js</a>, <a href="player.js.html#line80">line 80</a>
+        <a href="team.js.html">team.js</a>, <a href="team.js.html#line49">line 49</a>
     </li></ul></dd>
     
 
@@ -535,7 +537,7 @@ this allows to copy data between two different Player objects.</td>
 
         
 <div class="param-desc">
-    a promise which in case of success is fulfilled with a <a href="Battlerite.Player.html">Battlerite.Player</a> Object.
+    a promise which in case of success is fulfilled with a <a href="Battlerite.Team.html">Battlerite.Team</a> Object.
 </div>
 
 
@@ -572,7 +574,7 @@ this allows to copy data between two different Player objects.</td>
 
 
 <div class="description">
-    Static method that fetches a list of players from the API. You must call <a href="Battlerite.html#.config">Battlerite.config</a> and set the API key before calling this.
+    Static method that fetches a list of teams from the API. You must call <a href="Battlerite.html#.config">Battlerite.config</a> and set the API key before calling this.
 </div>
 
 
@@ -614,7 +616,7 @@ this allows to copy data between two different Player objects.</td>
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#PlayerListOptions">PlayerListOptions</a></span>
+<span class="param-type"><a href="global.html#TeamListOptions">TeamListOptions</a></span>
 
 
             
@@ -624,7 +626,7 @@ this allows to copy data between two different Player objects.</td>
 
             
 
-            <td class="description last">Options used to select which players are retrieved.</td>
+            <td class="description last">Options used to select which teams are retrieved.</td>
         </tr>
 
     
@@ -665,7 +667,7 @@ this allows to copy data between two different Player objects.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="player.js.html">player.js</a>, <a href="player.js.html#line49">line 49</a>
+        <a href="team.js.html">team.js</a>, <a href="team.js.html#line61">line 61</a>
     </li></ul></dd>
     
 
@@ -692,7 +694,7 @@ this allows to copy data between two different Player objects.</td>
 
         
 <div class="param-desc">
-    a promise which in case of success is fulfilled with an array of <a href="Battlerite.Player.html">Battlerite.Player</a> objects
+    a promise which in case of success is fulfilled with an array of <a href="Battlerite.Team.html">Battlerite.Team</a> objects
 </div>
 
 
