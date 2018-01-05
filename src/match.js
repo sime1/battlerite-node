@@ -18,7 +18,8 @@ let OPTIONS = require('./common/options.js');
 * @property {String} gameMode -  Game Mode
 * @property {String} patchVersion - Version of the gamethe match was played in
 * @property {String} shardID - Region shard
-* @property {map} Stats - stats particular to the match (right now it only contains a mapID, which probably tells you wich map the game was played in. more insigthful stats can be found inside the roster, round and participant objects)
+* @property {map} stats - stats particular to the match (right now it only contains a mapID, which probably tells you wich map the game was played in. more insigthful stats can be found inside the roster, round and participant objects)
+* @property {MatchTags} tags - Tags of the match, stating match and ranking types.
 * @property {Array} assets - Telemetry data. array of [Match.assets objects]{@link http://battlerite-docs.readthedocs.io/en/latest/match_data_summary/match_data_summary.html#match-object}
 * @property {Array} rosters - array of [rosters objects]{@link http://battlerite-docs.readthedocs.io/en/latest/match_data_summary/match_data_summary.html#rosters-object}
 * @property {Array} rounds - array of [rounds objects]{@link http://battlerite-docs.readthedocs.io/en/latest/match_data_summary/match_data_summary.html#rounds-object}
@@ -63,6 +64,9 @@ class Match extends Wrapper {
   * @property {String} createdAt-start - start time of the matches retrieved. format is iso8601.
   * @property {String} createdAt-end - end time of the matches retrieved. format is iso8601.
   * @property {String|String[]} playerIds - Filters by player ID. Can be a string of comma-separated IDs or an array of IDs.
+  * @property {String|String[]} patchVersion - Filters by patch version. Can be a string of comma-separated versions or an array of versions.
+  * @property {String|String[]} serverType - Filters by server type ("QUICK2V2", ...). Can be a string of comma separated values or an array.
+  * @property {String} rankingType - Filters by ranking type ("RANKED", "UNRANKED").
   */
 
   /**
@@ -72,6 +76,13 @@ class Match extends Wrapper {
   * @property {String} sort="createdAt" - tells how matches should be sorted.
   * @property {MatchFilterOptions} filter - Filter options.
   */
+
+  /**
+   * Tags available when retrieving a match
+   * @typedef {Object} MatchTags
+   * @property {String} rankingType - "RANKED" or "UNRANKED"
+   * @property {String} serverType - "QUICK2V2", "QUICK3V3", ...
+   */
 
   /**
    * Static method that fetches a list of matches from the API. You must call {@link Battlerite.config} and set the API key before calling this.
@@ -92,7 +103,10 @@ class Match extends Wrapper {
       filter: {
         'createdAt-start': filter['createdAt-start'],
         'createdAt-end': filter['createdAt-end'],
-        playerIds: filter['playerIds']
+        playerIds: filter['playerIds'],
+        patchVersion: filter['patchVersion'],
+        serverType: filter['serverType'],
+        rankingType: filter['rankingType']
       } = {}
     } = params);
     // url creation
