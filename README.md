@@ -64,3 +64,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 0.4.0: Team functionalities, minor documentation corrections
 
 0.4.2: New Match filters added in API V1.6.0
+
+0.4.3: Updated URL
