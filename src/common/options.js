@@ -1,5 +1,5 @@
 let OPTIONS = {
-  host: 'api.dc01.gamelockerapp.com',
+  host: 'api.developer.battlerite.com/',
   path: '/shards/global',
   headers: {
     'Accept': 'application/vnd.api+json'
